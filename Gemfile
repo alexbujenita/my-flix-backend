@@ -34,6 +34,9 @@ gem 'rack-cors'
 # Rest Client
 gem 'rest-client'
 
+# JSON Web Token
+gem 'jwt'
+
 # JSON
 gem 'json'
 
