@@ -1,8 +1,6 @@
 module MoviesHelper
   
   def get_movies
-    puts params
-    # movies = RestClient.get("https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&page=#{params[:page]}&api_key=#{Rails.application.credentials.dig(:themoviedb_api)}")
     movies = RestClient.get("https://api.themoviedb.org/3/discover/movie?api_key=#{Rails.application.credentials.dig(:themoviedb_api)}&language=en-US&include_adult=false&include_video=false&page=#{params[:page]}")
   end
 
