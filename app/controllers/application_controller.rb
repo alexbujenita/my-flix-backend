@@ -19,7 +19,7 @@ class ApplicationController < ActionController::API
     user_hash = {
       name: user[:name],
       email: user[:email],
-      id: user[:id]
+      user_id: user[:id]
     }
   end
   
