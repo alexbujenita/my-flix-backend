@@ -17,6 +17,7 @@ class ApplicationController < ActionController::API
     decoded_token = decode_token(token)
     user = User.find(decoded_token["user_id"])
     user_hash = {
+      name: user[:name],
       email: user[:email],
       id: user[:id]
     }
