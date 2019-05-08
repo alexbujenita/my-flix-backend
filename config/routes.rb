@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
   
+  post 'users/create', to: "users#create"
+  post "/auth/create", to: "auth#create"
+
+  get "/favorites", to: "favorites#my_favorites"
   
   post '/movies/search', to: "search#index"
   get '/movies/search', to: "search#index"
