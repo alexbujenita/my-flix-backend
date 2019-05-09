@@ -14,8 +14,10 @@ class FavoritesController < ApplicationController
   end
 
   def remove_favorite
-    movie = UserFavorite.find_by(movie_ref_id: params[:movie_id])
+    user_id = no_call_current_user[:user_id]
+    movie = UserFavorite.find_by(movie_ref_id: params[:movie_id], user_id: user_id)
     UserFavorite.destroy(movie.id)
+    render json: { success: "Movie removed" }
   end
 
 end
