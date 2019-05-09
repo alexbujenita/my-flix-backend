@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get "/auth/show", to: "auth#show"
 
   get "/favorites", to: "favorites#my_favorites"
+  post "/favorites", to: "favorites#add_favorites"
   
   post '/movies/search', to: "search#index"
   get '/movies/search', to: "search#index"
