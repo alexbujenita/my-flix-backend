@@ -13,4 +13,9 @@ class FavoritesController < ApplicationController
     UserFavorite.create!(user_id: user_id, movie_ref_id: params[:movie_ref_id], movie_title: params[:movie_title], movie_poster_path: params[:movie_poster_path])
   end
 
+  def remove_favorite
+    movie = UserFavorite.find_by(movie_ref_id: params[:movie_id])
+    UserFavorite.destroy(movie.id)
+  end
+
 end

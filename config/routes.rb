@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   get "/favorites", to: "favorites#my_favorites"
   post "/favorites", to: "favorites#add_favorites"
+  delete "/favorites", to: "favorites#remove_favorite"
   
   post '/movies/search', to: "search#index"
   get '/movies/search', to: "search#index"
