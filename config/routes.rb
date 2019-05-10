@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  resources :noko_movies
   post 'users/create', to: "users#create"
   post "/auth/create", to: "auth#create"
   get "/auth/show", to: "auth#show"

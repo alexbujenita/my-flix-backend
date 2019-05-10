@@ -1,0 +1,2 @@
+class NokoMoviesController < ApplicationController
+end

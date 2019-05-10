@@ -10,7 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_08_081759) do
+ActiveRecord::Schema.define(version: 2019_05_10_120805) do
+
+  create_table "noko_movies", force: :cascade do |t|
+    t.integer "movie_id"
+    t.string "title"
+    t.string "poster_path"
+    t.string "original_title"
+    t.string "genre_ids"
+    t.string "backdrop_path"
+    t.boolean "adult"
+    t.text "overview"
+    t.string "release_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "user_favorites", force: :cascade do |t|
     t.integer "user_id"

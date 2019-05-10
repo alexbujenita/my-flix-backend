@@ -1,0 +1,2 @@
+class NokoMovie < ApplicationRecord
+end
