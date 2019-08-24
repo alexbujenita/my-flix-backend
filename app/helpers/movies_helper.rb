@@ -40,7 +40,7 @@ module MoviesHelper
       RestClient.get("https://api.themoviedb.org/3/discover/movie?api_key=#{Rails.application.credentials.dig(:themoviedb_api)}&language=en-US&include_adult=false&include_video=false&page=#{rand(1..500)}")
     end
     def rand2
-      RestClient.get("https://api.themoviedb.org/3/discover/movie?api_key=#{Rails.application.credentials.dig(:themoviedb_api)}&language=en-US&sort_by=revenue.asc&include_adult=false&include_video=false&page=#{rand(1..500)}")
+      RestClient.get("https://api.themoviedb.org/3/discover/movie?api_key=#{Rails.application.credentials.dig(:themoviedb_api)}&language=en-US&sort_by=revenue.desc&include_adult=false&include_video=false&page=#{rand(1..500)}")
     end
     def rand3
       RestClient.get("https://api.themoviedb.org/3/discover/movie?api_key=#{Rails.application.credentials.dig(:themoviedb_api)}&language=en-US&sort_by=original_title.asc&include_adult=false&include_video=false&page=#{rand(1..500)}")
