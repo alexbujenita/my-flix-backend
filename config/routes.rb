@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   
   post '/movies/search', to: "search#index"
   get '/movies/search', to: "search#index"
+  get "/movies/random", to: "search#random_movies_end"
   resources :movies, only: [:index, :show]
   post '/movies', to: "movies#index"
   post '/movies/:id', to: "movies#show"
@@ -18,7 +19,6 @@ Rails.application.routes.draw do
   resources :credits, only: [:index]
 
   post '/credits', to: "credits#index"
-
   resources :trailers, only: [:index]
 
   post '/trailers', to: "trailers#index"
