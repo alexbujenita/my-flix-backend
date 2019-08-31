@@ -9,7 +9,6 @@ class MoviesController < ApplicationController
   end
 
   def actor_movies
-    actors_movies_search
-    puts params
+    render json: actors_movies_search
   end
 end
