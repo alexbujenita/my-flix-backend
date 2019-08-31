@@ -36,14 +36,14 @@ module MoviesHelper
     movies = []
     page_number = 1
     search = search_actor_pages(page_number, params[:id])
-    movies.push(search['results'])
+    movies.concat(search['results'])
     total_pages = search['total_pages']
     until page_number == total_pages
       page_number += 1
       search = search_actor_pages(page_number, params[:id])
-      movies.push(search['results'])
+      movies.concat(search['results'])
     end
-    movies
+    movies.to_json
   end
 
   private
