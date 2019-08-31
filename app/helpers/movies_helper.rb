@@ -5,7 +5,6 @@ module MoviesHelper
   end
 
   def get_one_movie
-    puts params
     movie = RestClient.get("https://api.themoviedb.org/3/movie/#{params[:movie_id]}?api_key=#{Rails.application.credentials.dig(:themoviedb_api)}")
   end
 
@@ -31,6 +30,12 @@ module MoviesHelper
       movies.push(movie2)
     end
     movies.uniq.to_json
+  end
+
+  def actors_movies_search
+    actor_id = params[:id]
+    query = "https://api.themoviedb.org/3/discover/movie?api_key=#{Rails.application.credentials.dig(:themoviedb_api)}&language=en-US&sort_by=popularity_desc&include_adult=true&include_video=false&page=#{page_number}&with_people=#{actor_id}"
+    puts "HELPER #{actor_id}"
   end
 
   private
