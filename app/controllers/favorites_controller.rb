@@ -2,11 +2,10 @@ class FavoritesController < ApplicationController
   def my_favorites
     if logged_in
       render json: User.find(no_call_current_user[:user_id]).user_favorites
-    else 
-      render json: {error: "Movies not available."}
+    else
+      render json: { error: 'Movies not available.' }
     end
   end
-
 
   def add_favorites
     user_id = no_call_current_user[:user_id]
@@ -17,7 +16,6 @@ class FavoritesController < ApplicationController
     user_id = no_call_current_user[:user_id]
     movie = UserFavorite.find_by(movie_ref_id: params[:movie_id], user_id: user_id)
     UserFavorite.destroy(movie.id)
-    render json: { success: "Movie removed" }
+    render json: { success: 'Movie removed' }
   end
-
 end
