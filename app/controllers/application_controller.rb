@@ -9,14 +9,14 @@ class ApplicationController < ActionController::API
   end
 
   def get_token
-    request.headers["Authorization"]
+    request.headers['Authorization']
   end
 
   def no_call_current_user
     token = get_token
     decoded_token = decode_token(token)
-    user = User.find(decoded_token["user_id"])
-    user_hash = {
+    user = User.find(decoded_token['user_id'])
+    {
       name: user[:name],
       email: user[:email],
       user_id: user[:id]

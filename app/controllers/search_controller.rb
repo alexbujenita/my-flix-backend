@@ -1,7 +1,6 @@
 class SearchController < ApplicationController
 
   def index
-    puts get_movie_search
     render json: get_movie_search
   end
 

@@ -5,7 +5,6 @@ module MoviesHelper
   end
 
   def get_one_movie
-    puts params
     movie = RestClient.get("https://api.themoviedb.org/3/movie/#{params[:movie_id]}?api_key=#{Rails.application.credentials.dig(:themoviedb_api)}")
   end
 
@@ -33,7 +32,25 @@ module MoviesHelper
     movies.uniq.to_json
   end
 
+  def actors_movies_search
+    movies = []
+    page_number = 1
+    search = search_actor_pages(page_number, params[:id])
+    movies.concat(search['results'])
+    total_pages = search['total_pages']
+    until page_number == total_pages
+      page_number += 1
+      search = search_actor_pages(page_number, params[:id])
+      movies.concat(search['results'])
+    end
+    movies.to_json
+  end
+
   private
+
+  def search_actor_pages(page_number, actor_id)
+    JSON.parse(RestClient.get("https://api.themoviedb.org/3/discover/movie?api_key=#{Rails.application.credentials.dig(:themoviedb_api)}&language=en-US&sort_by=popularity_desc&include_adult=true&include_video=false&page=#{page_number}&with_people=#{actor_id}"))
+  end
 
   def random_query
     def rand1

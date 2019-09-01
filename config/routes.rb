@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   delete "/favorites", to: "favorites#remove_favorite"
   
   post '/movies/search', to: "search#index"
+  get '/actor/:id', to: "movies#actor_movies"
   get '/movies/search', to: "search#index"
   get "/movies/random", to: "search#random_movies_end"
   resources :movies, only: [:index, :show]
