@@ -43,7 +43,7 @@ module MoviesHelper
       search = search_actor_pages(page_number, params[:id])
       movies.concat(search['results'])
     end
-    movies.to_json
+    movies.uniq.to_json
   end
 
   private
