@@ -26,8 +26,7 @@ module MoviesHelper
       query = random_query
       movie1 = JSON.parse(query)['results'].sample
       movie2 = JSON.parse(query)['results'].sample
-      movies.push(movie1)
-      movies.push(movie2)
+      movies.push(movie1, movie2)
     end
     movies.uniq.to_json
   end

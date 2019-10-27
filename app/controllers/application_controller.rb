@@ -11,7 +11,8 @@ class ApplicationController < ActionController::API
   def get_token
     request.headers['Authorization']
   end
-
+  
+  # huge time spent on get_current_user... some Rails method name clashing
   def no_call_current_user
     token = get_token
     decoded_token = decode_token(token)
